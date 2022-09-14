@@ -22,7 +22,7 @@ export default async function handler(
         const startAtNum = startAt ? parseInt(startAt as string) : 0;
         const limit: number = 100;
         const contractAddress: string =
-          "0x943449ff0ac328c9a74b159e8df53ff03e410310";
+          "0xc2304003fbff7bf35215973c68ea74ba978dabe4";
 
         const web3: Web3 = new Web3(
           new Web3.providers.HttpProvider(

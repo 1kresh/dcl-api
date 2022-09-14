@@ -17,7 +17,7 @@ export default async function handler(
     case "GET":
       try {
         const contractAddress: string =
-          "0x943449ff0ac328c9a74b159e8df53ff03e410310";
+          "0xc2304003fbff7bf35215973c68ea74ba978dabe4";
         const web3: Web3 = new Web3(
           new Web3.providers.HttpProvider(
             process.env.NEXT_PUBLIC_RINKEBY_ENDPOINT
