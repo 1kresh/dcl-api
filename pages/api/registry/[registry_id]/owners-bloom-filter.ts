@@ -25,7 +25,7 @@ export default async function handler(
         );
 
         const contract = new web3.eth.Contract(
-          Base_metadata["output"]["abi"],
+          Base_metadata["output"]["abi"] as any,
           contractAddress
         );
 
@@ -51,7 +51,6 @@ export default async function handler(
 
         res.status(200).json({ data });
       } catch (error) {
-        console.log(error);
         res.status(400).json({ data: "" });
       }
       break;

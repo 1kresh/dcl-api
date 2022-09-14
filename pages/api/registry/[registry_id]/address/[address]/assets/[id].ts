@@ -28,7 +28,7 @@ export default async function handler(
         );
 
         const contract = new web3.eth.Contract(
-          Base_metadata["output"]["abi"],
+          Base_metadata["output"]["abi"] as any,
           contractAddress
         );
 
@@ -38,7 +38,7 @@ export default async function handler(
         }
 
         const asset: Asset = {
-          id,
+          id: id as string,
           amount: 1,
           urn: {
             decentraland: `urn:decentraland:matic:collections-thirdparty:${registry_id}:${contractAddress}:${tokenId}`,
@@ -47,9 +47,8 @@ export default async function handler(
 
         res.status(200).json(asset);
       } catch (error) {
-        console.log(error);
         res.status(400).json({
-          id,
+          id: id as string,
           amount: 0,
           urn: {
             decentraland: "",

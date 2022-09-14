@@ -14,6 +14,8 @@ export default async function handler(
     method,
   } = req;
 
+  const ownerAddress = (address as string).toLowerCase();
+
   switch (method) {
     case "GET":
       try {
@@ -21,7 +23,6 @@ export default async function handler(
         const limit: number = 100;
         const contractAddress: string =
           "0x943449ff0ac328c9a74b159e8df53ff03e410310";
-        const ownerAddress = (address as string).toLowerCase();
 
         const web3: Web3 = new Web3(
           new Web3.providers.HttpProvider(
@@ -30,7 +31,7 @@ export default async function handler(
         );
 
         const contract = new web3.eth.Contract(
-          Base_metadata["output"]["abi"],
+          Base_metadata["output"]["abi"] as any,
           contractAddress
         );
 
@@ -63,7 +64,6 @@ export default async function handler(
               : "",
         });
       } catch (error) {
-        console.log(error);
         res.status(400).json({
           address: ownerAddress,
           assets: [],
